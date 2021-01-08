@@ -34,7 +34,8 @@ jobs:
       - name: Knit
         shell: Rscript{0}
         run: |
-          rmarkdown::render("cv/cv.Rmd")
+          getwd()
+          rmarkdown::render(here::here("cv", "cv.Rmd"))
 
       - name: Upload
         uses: actions/upload-artifact@v2
