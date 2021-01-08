@@ -38,14 +38,13 @@ jobs:
           if (!requireNamespace("renv", quietly = TRUE)) install.packages("renv")
           renv::restore()
 
-      - name: Install dependencies
+      - name: Knit
+        shell: Rscript{0}
         run: |
-          remotes::install_deps(dependencies = TRUE)
-          install.packages("pkgdown")
-        shell: Rscript {0}
+          rmarkdown::render("cv/cv.Rmd")
 
-      - name: Deploy package
-        run: |
-          git config --local user.email "actions@github.com"
-          git config --local user.name "GitHub Actions"
-          Rscript -e 'pkgdown::deploy_to_branch(new_process = FALSE)'
+      - name: Upload
+        uses: actions/upload-artifact@v2
+        with:
+          name: cv
+          path: cv/cv.pdf

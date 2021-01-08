@@ -3,3 +3,7 @@
 .Rhistory
 .Rdata
 .DS_Store
+
+cv/fonts
+cv/cv.pdf
+cv/*cls
