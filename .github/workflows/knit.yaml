@@ -32,7 +32,7 @@ jobs:
           renv::restore()
 
       - name: Knit
-        shell: Rscript{0}
+        shell: Rscript {0}
         run: |
           getwd()
           rmarkdown::render(here::here("cv", "cv.Rmd"))
