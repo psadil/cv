@@ -25,7 +25,7 @@ jobs:
       - name: cache r packages
         uses: actions/cache@v2
         with:
-          path: $HOME/.local/share/renv
+          path: ~/.local/share/renv
           key: renv-${{ hashFiles('**/renv.lock') }}
           restore-keys: |
             renv-
