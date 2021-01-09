@@ -24,7 +24,7 @@ jobs:
       - name: cache r packages
         uses: actions/cache@v2
         with:
-          path: ~/.local/share/renv
+          path: $HOME/.local/share/renv
           key: ${{ runner.os }}-renv-${{ hashFiles('**/renv.lock') }}
           restore-keys: |
             ${{ runner.os }}-renv-
@@ -45,16 +45,17 @@ jobs:
       - name: knit
         shell: Rscript {0}
         run: |
-          rmarkdown::render(here::here("cv", "cv.Rmd"), quiet=TRUE)
+          rmarkdown::render(here::here("cv", "cv.Rmd"), quiet=TRUE, output_dir = here::here())
+
 
       - name: deploy package
+        uses: actions/checkout@v2
+        with:
+          ref: my-branch
         run: |
-          echo $PWD
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
-          git checkout gh-pages
-          mv cv/cv.pdf cv.pdf
           git add cv.pdf
-          git commit -m "Built site"
-          git push origin gh-pages
+          git commit -m "generated cv"
+          git push
 
