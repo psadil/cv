@@ -29,13 +29,6 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-renv-
 
-      - name: cache cv
-        uses: actions/cache@v2
-        with:
-          path: cv
-          key: cv-${{ hashFiles('**/*Rmd') }}
-          restore-keys: cv-
-
       - name: install packages
         shell: Rscript {0}
         run: |
@@ -46,10 +39,6 @@ jobs:
         shell: Rscript {0}
         run: |
           rmarkdown::render(here::here("cv", "cv.Rmd"), quiet=TRUE, output_dir = here::here())
-
-      - uses: actions/checkout@v2
-        with:
-          ref: my-branch
 
       - name: deploy package
         run: |
