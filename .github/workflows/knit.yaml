@@ -40,15 +40,14 @@ jobs:
         run: |
           rmarkdown::render(here::here("cv", "cv.Rmd"))
 
-      - name: Upload
-        uses: actions/upload-artifact@v2
-        with:
-          name: cv
-          path: cv/cv.pdf
-
       - name: deploy package
         run: |
+          echo $PWD
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
-          Rscript -e 'pkgdown::deploy_to_branch(new_process = FALSE)'
+          git checkout gh-pages
+          mv cv/cv.pdf cv.pdf
+          git add cv.pdf
+          git commit -m "Built site"
+          git push origin gh-pages
 
