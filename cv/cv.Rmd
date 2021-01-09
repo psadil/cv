@@ -56,11 +56,11 @@ read_csv(
     amount = col_character(),
     why = col_character())) %>% 
   detailed_entries(
-    what=amount,
-    when=when,
-    with=name,
-    where=where,
-    why=why)
+    what = amount,
+    when = when,
+    with = name,
+    where = where,
+    why = why)
 
 ```
 
