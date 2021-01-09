@@ -40,7 +40,6 @@ jobs:
 
       - name: commit cv
         run: |
-          echo $PWD
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
           git fetch origin gh-pages
