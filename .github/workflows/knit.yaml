@@ -15,13 +15,13 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - uses: r-lib/actions/setup-r@master
+      - uses: r-lib/actions/setup-r@v1
 
       - uses: r-lib/actions/setup-pandoc@master
 
       - uses: r-lib/actions/setup-tinytex@v1
 
-      - name: Cache R packages
+      - name: cache r packages
         uses: actions/cache@v2
         with:
           path: ~/.local/share/renv
@@ -29,13 +29,13 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-renv-
 
-      - name: Restore packages
+      - name: install packages
         shell: Rscript {0}
         run: |
           if (!requireNamespace("renv", quietly = TRUE)) install.packages("renv")
           renv::restore()
 
-      - name: Knit
+      - name: knit
         shell: Rscript {0}
         run: |
           rmarkdown::render(here::here("cv", "cv.Rmd"))
@@ -45,3 +45,10 @@ jobs:
         with:
           name: cv
           path: cv/cv.pdf
+
+      - name: deploy package
+        run: |
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions"
+          Rscript -e 'pkgdown::deploy_to_branch(new_process = FALSE)'
+
