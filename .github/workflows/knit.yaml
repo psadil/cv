@@ -26,9 +26,9 @@ jobs:
         uses: actions/cache@v2
         with:
           path: $HOME/.local/share/renv
-          key: ${{ runner.os }}-renv-${{ hashFiles('**/renv.lock') }}
+          key: renv-${{ hashFiles('**/renv.lock') }}
           restore-keys: |
-            ${{ runner.os }}-renv-
+            renv-
 
       - name: install packages
         shell: Rscript {0}
