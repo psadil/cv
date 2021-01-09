@@ -47,12 +47,13 @@ jobs:
         run: |
           rmarkdown::render(here::here("cv", "cv.Rmd"), quiet=TRUE, output_dir = here::here())
 
-
-      - name: deploy package
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
         with:
           ref: my-branch
+
+      - name: deploy package
         run: |
+          echo $PWD
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
           git add cv.pdf
