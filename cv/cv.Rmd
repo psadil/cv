@@ -61,14 +61,12 @@ read_csv(
     with = name,
     where = where,
     why = why)
-
 ```
 
 # Presentations
 
 ```{r, presentations}
 bibliography_entries(here::here("data", "presentations.bib"))
-
 ```
 
 
@@ -95,7 +93,6 @@ read_csv(
     what = what,
     when = when,
     with = where)
-
 ```
 
 
