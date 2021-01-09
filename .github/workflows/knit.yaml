@@ -8,7 +8,7 @@ name: knit
 jobs:
   knit:
     runs-on: ubuntu-20.04
-    container: rocker/verse
+    container: rocker/verse:4.0.3
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
       LANG: en_US.UTF-8
@@ -32,15 +32,20 @@ jobs:
       - name: knit
         shell: Rscript {0}
         run: |
-          rmarkdown::render(here::here("cv", "cv.Rmd"), quiet=TRUE, output_dir = here::here())
+          rmarkdown::render(
+            here::here("cv", "cv.Rmd"),
+            quiet=TRUE,
+            output_dir = here::here(),
+            output_file = "tmp")
 
-      - name: deploy package
+      - name: commit cv
         run: |
           echo $PWD
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
           git fetch origin gh-pages
           git checkout gh-pages
+          mv tmp cv.pdf
           git add cv.pdf
           git commit -m "generated cv"
           git push origin gh-pages
