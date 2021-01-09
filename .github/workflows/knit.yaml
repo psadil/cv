@@ -45,7 +45,7 @@ jobs:
           git config --local user.name "GitHub Actions"
           git fetch origin gh-pages
           git checkout gh-pages
-          mv tmp cv.pdf
+          mv tmp.pdf cv.pdf
           git add cv.pdf
           git commit -m "generated cv"
           git push origin gh-pages
