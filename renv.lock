@@ -228,7 +228,8 @@
       "Package": "renv",
       "Version": "0.12.5",
       "Source": "Repository",
-      "Repository": "CRAN"
+      "Repository": "CRAN",
+      "Hash": "5c0cdb37f063c58cdab3c7e9fbb8bd2c"
     },
     "rlang": {
       "Package": "rlang",
@@ -308,10 +309,15 @@
     },
     "vitae": {
       "Package": "vitae",
-      "Version": "0.3.0",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Hash": "0845e4d6003bebb82e688324f78eb7e6"
+      "Version": "0.3.0.9000",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteRepo": "vitae",
+      "RemoteUsername": "mitchelloharawild",
+      "RemoteRef": "HEAD",
+      "RemoteSha": "cf76529fa74cbb6ac507e93d382b3c65d7f2b062",
+      "Hash": "c1e9351b1e8779c24f9a5f22b496122c"
     },
     "xfun": {
       "Package": "xfun",
