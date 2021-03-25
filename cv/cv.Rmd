@@ -2,6 +2,7 @@
 name: Patrick
 surname: Sadil
 position: "Postdoctoral Research Associate"
+address: "University of Massachusetts, Amherst"
 www: psadil.gitlab.io/psadil
 email: "psadil@umass.edu"
 github: psadil
@@ -31,9 +32,9 @@ read_csv(
     institution = col_character(),
     where = col_character())) %>%
   detailed_entries(
-    what = degree,
+    what = institution,
     when = glue::glue("{start_date}--{end_date}"),
-    with = institution,
+    with = degree,
     where = where)
 ```
 
@@ -72,13 +73,17 @@ bibliography_entries(here::here("data", "presentations.bib"))
 
 # Peer Review
 
-## Ad hoc book review
 
-- Springer
+```{r review}
 
-## Ad hoc review for journals 
+tibble::tribble(
+  ~ what, ~ details,
+  "Ad hoc book review", c("Springer"), 
+  "Ad hoc review for journals", c("Journal of Mathematical Psychology")) %>%
+  detailed_entries(why = details, what = what)
 
-- Journal of Mathematical Psychology
+```
+
 
 # Workshops Attended
 

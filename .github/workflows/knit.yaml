@@ -39,6 +39,7 @@ jobs:
       - name: knit
         shell: Rscript {0}
         run: |
+          tinytex::tlmgr_install("pdfcrop")
           rmarkdown::render(
             here::here("cv", "cv.Rmd"),
             quiet=TRUE,
