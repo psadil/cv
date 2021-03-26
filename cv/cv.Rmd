@@ -6,7 +6,7 @@ address: "University of Massachusetts, Amherst"
 www: psadil.gitlab.io/psadil
 email: "psadil@umass.edu"
 github: psadil
-linkedin: patrick-sadil-3b245166
+linkedin: psadil
 orcid: 0000-0003-4141-1343
 date: "`r format(Sys.time(), '%B %Y')`"
 output: vitae::awesomecv
