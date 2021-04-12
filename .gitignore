@@ -9,5 +9,5 @@ cv/cv.pdf
 cv/*cls
 
 resume/fonts
-resume/resume.pdf
+resume/*pdf
 resume/*cls

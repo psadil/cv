@@ -25,7 +25,7 @@ library(readr)
 
 ```{r education}
 education <- read_csv(
-  here::here("data", "education.csv"),
+  here::here("data", "education-cos.csv"),
   col_types = cols(
     degree = col_character(),
     start_date = col_double(),
@@ -51,8 +51,8 @@ education %>%
 ```{r, experience}
 tibble::tribble(
   ~ what, ~ date, ~ with, ~ details,
-  "University of Massachusetts, Amherst", "Sep 2020 - Present", "Postdoctoral Research Associate", c("Implement user-friendly R package for inferring neuromodulation and bundle as BIDS Application", "Automate testing of package on multiple operating systems (Linux, macOS, Windows) with GitHub Actions", "Design multi-day workshops on neuromodulation package, including background in Bayesian analyses", "Solicit and respond to user feedback to improve usability and documentation"),
-  "University of Massachusetts, Amherst", "Summer 2016 - Summer 2020", "Research Assistant", c("Organized tutorials and a weekly 'coding club' focused on software for graduate students", "Conducted research for and published two first-author papers under NSF and NIH funded projects", "Initiated adoption of BIDS and BIDS-derivatives by lab members"),
+  "University of Massachusetts, Amherst", "Sep 2020 - Present", "Postdoctoral Research Associate", c("Apply for NIH funding to develop user-friendly software to analyze neuroimaging data", "Design multi-day workshops on neuromodulation package, including background in Bayesian analyses", "Solicit and respond to user feedback to improve usability and documentation", "Automate testing of package on different operating systems (Linux, macOS, Windows) with GitHub Actions"),
+  "University of Massachusetts, Amherst", "Summer 2016 - Summer 2020", "Research Assistant", c("Organized tutorials and a weekly 'coding club' to share software development tips among graduate students", "Facilitated adoption of standardized system for organizing and documenting neuroimaging data", "Conducted research for and published two first-author papers under NSF and NIH funded projects", "Submitted preprints for research and archived results and data on the OSF"),
     "University of Massachusetts, Amherst", "Spring 2016", "Teaching Assistant - Research Methods in Psychology", c("Lectured to 20 psychology undergraduate students twice weekly, guiding students through three research projects", "Reviewed theory of introductory statistics, including lab-based practice", "Maintained office hours to review course content and exams one-on-one")) %>%
   detailed_entries(what = what, when = date, with = with, why = details)
 ```
@@ -70,6 +70,6 @@ tibble::tribble(
 
 
 # Skills
- - **Proficient:** R (incl. Tidyverse),  git (incl. git-annex, GitHub/GitLab)
- - **Experienced:** Python, Linux, JavaScript, SQL (SQLite, PostgreSQL)
- - **Learning** Django, TypeScript, Angular
+ - **Proficient:** R (incl. Tidyverse)
+ - **Experienced:** Python, git (incl. git-annex, GitHub/GitLab), JavaScript
+ - **Learning** Django, SQL (SQLite, PostgreSQL), Docker
