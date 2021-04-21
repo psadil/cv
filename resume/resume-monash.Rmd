@@ -1,0 +1,76 @@
+---
+name: Patrick
+surname: Sadil
+position: "Postdoctoral Research Associate"
+address: "University of Massachusetts, Amherst"
+www: psadil.gitlab.io/psadil
+email: "psadil@umass.edu"
+phone: (541) 399-3245
+github: psadil
+linkedin: psadil
+orcid: 0000-0003-4141-1343
+date: "`r format(Sys.time(), '%B %Y')`"
+output: vitae::awesomecv
+csl: ../csl/apa-cv.csl 
+headcolor: 414141 # use black color
+docname: Résumé
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+library(vitae)
+library(readr)
+```
+
+# Education
+
+```{r education}
+education <- read_csv(
+  here::here("data", "education-cos.csv"),
+  col_types = cols(
+    degree = col_character(),
+    start_date = col_double(),
+    end_date = col_double(),
+    institution = col_character(),
+    where = col_character())) %>%
+  dplyr::rowwise() %>%
+  dplyr::mutate(
+    dplyr::across(tidyselect::starts_with("why"), ~ifelse(is.na(.x), list(), list(.x))),
+    why = list(dplyr::c_across(tidyselect::starts_with("why"))))
+
+education %>%
+  detailed_entries(
+    what = institution,
+    when = glue::glue("{start_date}--{end_date}"),
+    with = degree,
+    why = why)
+
+```
+
+# Relevant Experience
+
+```{r, experience}
+tibble::tribble(
+  ~ what, ~ date, ~ with, ~ details,
+  "University of Massachusetts, Amherst", "Sep 2020 - Present", "Postdoctoral Research Associate", c("Apply for NIH funding to develop user-friendly software to analyze neuroimaging data", "Design multi-day workshops on neuromodulation package, including background in Bayesian analyses", "Solicit and respond to user feedback to improve usability and documentation", "Automate testing of package on different operating systems (Linux, macOS, Windows) with GitHub Actions"),
+  "University of Massachusetts, Amherst", "Summer 2016 - Summer 2020", "Research Assistant", c("Organized tutorials and a weekly 'coding club' to share software development tips among graduate students", "Facilitated adoption of standardized system for organizing and documenting neuroimaging data", "Conducted research for and published two first-author papers under NSF and NIH funded projects", "Submitted preprints for research and archived results and data on the OSF"),
+    "University of Massachusetts, Amherst", "Spring 2016", "Teaching Assistant - Research Methods in Psychology", c("Lectured to 20 psychology undergraduate students twice weekly, guiding students through three research projects", "Reviewed theory of introductory statistics, including lab-based practice", "Maintained office hours to review course content and exams one-on-one")) %>%
+  detailed_entries(what = what, when = date, with = with, why = details)
+```
+
+# Personal Projects
+
+```{r, projects}
+# \\href{https://psadil.gitlab.io/psadil/post/2021-01-02-gan-mass/}{Blog Post}
+tibble::tribble(
+  ~ with, ~ details, ~ what,
+  "Machine Learning with Generative Adversarial Network", c("Scrapped ~25,000 images from Google Maps using Google APIs and Python", "Preprocessed images in Python for training TensorFlow neural network (stylegan2-ada)", "Trained network on Google Cloud Compute Engine"), "",
+    "Online behavioral experiment", c("Prepared for COVID-19 by porting behavioral experiment to Heroku using Python web framework (Django), Angular, and postgreSQL"), NA_character_) %>%
+  detailed_entries(with = what, why = details, what = with, .protect = FALSE)
+```
+
+
+# Skills
+ - **Proficient:** R (incl. Tidyverse), Stan
+ - **Experienced:** Python, git (incl. git-annex, GitHub/GitLab), JavaScript
+ - **Learning** SQL (SQLite, PostgreSQL), Docker
