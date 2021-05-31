@@ -3,7 +3,7 @@ name: Patrick
 surname: Sadil
 position: "Postdoctoral Research Associate"
 address: "University of Massachusetts, Amherst"
-www: psadil.gitlab.io/psadil
+www: psadil.github.io/psadil
 email: "psadil@umass.edu"
 phone: (541) 399-3245
 github: psadil
@@ -61,7 +61,6 @@ tibble::tribble(
 # Personal Projects
 
 ```{r, projects}
-# \\href{https://psadil.gitlab.io/psadil/post/2021-01-02-gan-mass/}{Blog Post}
 tibble::tribble(
   ~ with, ~ details, ~ what,
   "Machine Learning with Generative Adversarial Network", c("Scrapped ~25,000 images from Google Maps using Google APIs and Python", "Preprocessed images in Python for training TensorFlow neural network (stylegan2-ada)", "Trained network on Google Cloud Compute Engine"), "",

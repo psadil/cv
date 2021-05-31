@@ -3,7 +3,7 @@ name: Patrick
 surname: Sadil
 position: "Postdoctoral Research Associate"
 address: "University of Massachusetts, Amherst"
-www: psadil.gitlab.io/psadil
+www: psadil.github.io/psadil
 email: "psadil@umass.edu"
 github: psadil
 linkedin: psadil
