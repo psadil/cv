@@ -1,10 +1,10 @@
 ---
 name: Patrick
 surname: Sadil
-position: "Postdoctoral Research Associate"
-address: "University of Massachusetts, Amherst"
+position: "Postdoctoral Research Fellow"
+address: "Johns Hopkins Bloomberg School of Public Health; Biostatistics"
 www: psadil.github.io/psadil
-email: "psadil@umass.edu"
+email: "psadil1@jh.edu"
 github: psadil
 linkedin: psadil
 orcid: 0000-0003-4141-1343

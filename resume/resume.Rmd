@@ -1,10 +1,10 @@
 ---
 name: Patrick
 surname: Sadil
-position: "Postdoctoral Research Associate"
-address: "University of Massachusetts, Amherst"
+position: "Postdoctoral Research Fellow"
+address: "Johns Hopkins Bloomberg School of Public Health; Biostatistics"
 www: psadil.github.io/psadil
-email: "psadil@umass.edu"
+email: "psadil1@jh.edu"
 github: psadil
 linkedin: psadil
 orcid: 0000-0003-4141-1343
@@ -46,13 +46,14 @@ education %>%
 
 ```
 
-# Relevant Experience
+# Experience
 
 ```{r, experience}
 tibble::tribble(
   ~ what, ~ date, ~ with, ~ details,
-  "University of Massachusetts, Amherst", "Sep 2020 - Present", "Postdoctoral Research Associate", c("Implement user-friendly R package for inferring neuromodulation and bundle as BIDS Application", "Automate testing of package on multiple operating systems (Linux, macOS, Windows) with GitHub Actions", "Design multi-day workshops on neuromodulation package, including background in Bayesian analyses", "Solicit and respond to user feedback to improve usability and documentation"),
-  "University of Massachusetts, Amherst", "Summer 2016 - Summer 2020", "Research Assistant", c("Organized tutorials and a weekly 'coding club' focused on software for graduate students", "Conducted research for and published two first-author papers under NSF and NIH funded projects", "Initiated adoption of BIDS and BIDS-derivatives by lab members"),
+  "Johns Hopkins Bloomberg School of Public Health", "July 2021 - Present", "Postdoctoral Research Fellow - Biostatistics", c("Built quality control procedure for large neuroimaging dataset of chronic pain", "Arranged python and bash analysis pipeline at High Performance Computing center to automate data processing."),
+  "University of Massachusetts, Amherst", "Sep 2020 - June 2021", "Postdoctoral Research Associate - Cognitive Psychology", c("Implemented user-friendly R package for inferring neuromodulation and bundle as BIDS Application", "Automated testing of package on multiple operating systems (Linux, macOS, Windows) with GitHub Actions", "Designed multi-day workshops on neuromodulation package, including background in Bayesian analyses"),
+  "University of Massachusetts, Amherst", "Summer 2016 - Summer 2020", "Research Assistant", c("Organized tutorials and a weekly 'coding club' focused on software for graduate students", "Conducted research for and published two first-author papers under NSF and NIH funded projects"),
     "University of Massachusetts, Amherst", "Spring 2016", "Teaching Assistant - Research Methods in Psychology", c("Lectured to 20 psychology undergraduate students twice weekly, guiding students through three research projects", "Reviewed theory of introductory statistics, including lab-based practice", "Maintained office hours to review course content and exams one-on-one")) %>%
   detailed_entries(what = what, when = date, with = with, why = details)
 ```
@@ -62,13 +63,10 @@ tibble::tribble(
 ```{r, projects}
 tibble::tribble(
   ~ with, ~ details, ~ what,
-  "Machine Learning with Generative Adversarial Network", c("Scrapped ~25,000 images from Google Maps using Google APIs and Python", "Preprocessed images in Python for training TensorFlow neural network (stylegan2-ada)", "Trained network on Google Cloud Compute Engine"), "",
-    "Online behavioral experiment", c("Prepared for COVID-19 by porting behavioral experiment to Heroku using Python web framework (Django), Angular, and postgreSQL"), NA_character_) %>%
+    "\\$50000 grant from Oracle - Probing Bias in Automated Diagnoses from Medical Imaging", c("Ongoing project to study biases in predictions of health outcomes with the largest neuroimaging dataset ever collected", "Train machine and deep learning algorithms on one demographic, assess generalizability in others", "Running python scripts on Oracle Cloud Infrastructure"), NA_character_,
+  "Machine Learning with Generative Adversarial Network", c("Scrapped ~25,000 images from Google Maps using Google APIs and python", "Preprocessed images in python for training TensorFlow neural network (stylegan2-ada)", "Trained network on Google Cloud Compute Engine"), NA_character_,
+    "Online behavioral experiment", c("Prepared for COVID-19 by porting behavioral experiment to Heroku using python web framework (Django), Angular, and postgreSQL"), NA_character_) |>
   detailed_entries(with = what, why = details, what = with, .protect = FALSE)
 ```
 
 
-# Skills
- - **Proficient:** R (incl. Tidyverse),  git (incl. git-annex, GitHub/GitLab)
- - **Experienced:** Python, Linux, JavaScript, SQL (SQLite, PostgreSQL)
- - **Learning** Django, TypeScript, Angular
