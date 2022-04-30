@@ -1,0 +1,21 @@
+---
+title: ""
+format: pdf
+---
+
+Dear Hiring Manager,
+
+Passionate about telling stories backed by data, I am a postdoctoral research fellow in Biostatistics with 7 years of experience designing experiments and analyzing data with a variety of statistical methods. I am eager to work as a Senior Product Data Scientist at Mozilla--to help build an internet that is more open, more secure, and more empowering. 
+
+Mozilla has developed pioneering products, from Firefox to Pocket to Mozilla VR. As the internet ecosystem and usage patterns evolve, the company therefore has enormous potential to hone existing, and build the next generation of, products to ensure that the internet remains an accessible public resource. But to reach that potential requires narrating the stories of these products, and the narrations must be supported by data and analyses. I am positioned to contribute to those stories. My background in academic research prepares me to distill intricate systems of ideas into key questions, and then design methods and metrics for providing answers. I would look forward to answering questions about which are the next substantive ways that Mozilla could grow. 
+
+During graduate school, I learned the enormous value of circulating skills throughout a team. Most of my research centered on developing bespoke (Bayesian) analyses. This was inspired by an early collaboration with a more senior member of our lab, an expert at testing assumptions of analyses and their implementation. Keen to pay this mentorship back to the community, I sought out a teaching assistant position for a graduate level statistics course. In that position, I was responsible for advising on the capstone projects for half of the students, students from varied backgrounds like clinical psychology, marketing, and finance. Many students incorporated the methods into their dissertations. At Mozilla, I would look forward to continuing to share knowledge, to learn from teammates, and to prioritize collaboration. 
+
+I am accustomed to converting messy data into tidy, tabular structures. To do this, I have primarily used R (Tidyverse) and Python (pandas), rather than SQL. But as time and necessities permit, I adore learning new technologies. For example, during the initial warnings about the pandemic, I was collecting data for a new experiment. The experiment required that participants visit our lab in person, where they would go through a computer task. Anticipating closure of in-person activities, I pivoted rapidly and learned how to implement the experiment online with a Python web framework (Django), Angular, and PostgreSQL. I would look forward to bringing that same flexible mindset to Mozilla.
+
+Thank you for considering me for this position. I look forward to your response.
+
+Best, \newline
+Patrick Sadil, PhD (he/him) \newline
+Postdoctoral Research Fellow, Biostatistics  \newline
+Johns Hopkins Bloomberg School of Public Health
