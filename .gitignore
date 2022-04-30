@@ -6,6 +6,8 @@
 
 cv/fonts
 cv/cv.pdf
+*pdf
+*html
 cv/*cls
 
 resume/fonts
