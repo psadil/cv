@@ -1,0 +1,72 @@
+---
+name: Patrick
+surname: Sadil
+position: "Postdoctoral Research Fellow"
+address: "Johns Hopkins Bloomberg School of Public Health; Biostatistics"
+www: psadil.github.io/psadil
+email: "psadil1@jh.edu"
+github: psadil
+linkedin: psadil
+orcid: 0000-0003-4141-1343
+date: "`r format(Sys.time(), '%B %Y')`"
+output: vitae::awesomecv
+csl: ../csl/apa-cv.csl 
+headcolor: 414141 # use black color
+docname: Résumé
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+library(vitae)
+library(readr)
+# https://boards.greenhouse.io/udemy/jobs/4490304004?s=LinkedIn&source=LinkedIn
+```
+
+# Education
+
+```{r education}
+education <- read_csv(
+  here::here("data", "education-mozilla.csv"),
+  col_types = cols(
+    degree = col_character(),
+    start_date = col_double(),
+    end_date = col_double(),
+    institution = col_character(),
+    where = col_character())) %>%
+  dplyr::rowwise() %>%
+  dplyr::mutate(
+    dplyr::across(tidyselect::starts_with("why"), ~ifelse(is.na(.x), list(), list(.x))),
+    why = list(dplyr::c_across(tidyselect::starts_with("why"))))
+
+education %>%
+  detailed_entries(
+    what = institution,
+    when = glue::glue("{start_date}--{end_date}"),
+    with = degree,
+    why = why)
+
+```
+
+# Experience
+
+```{r, experience}
+tibble::tribble(
+  ~ what, ~ date, ~ with, ~ details,
+  "Johns Hopkins Bloomberg School of Public Health", "July 2021 - Present", "Postdoctoral Research Fellow - Biostatistics", c("Built preprocessing and quality control procedure for large medical imaging dataset", "Configured analysis pipeline at High Performance Computing center to automate analyses (Python, bash, Docker/Singularity, SQLite).", "Presented periodic reports to update on key metrics and data anomolies at meetings with varied stakeholders--including teammates, technical experts from other domains, and funders"),
+  "University of Massachusetts, Amherst", "Sep 2020 - June 2021", "Postdoctoral Research Associate - Cognitive Psychology", c("Implemented R package to share analysis methods", "Automated testing of package on multiple operating systems (Linux, macOS, Windows) with GitHub Actions", "Promoted standardized stuctures for storing and organizing data"),
+  "University of Massachusetts, Amherst", "Spring 2019", "Teaching Assistant - Graduate Level Bayesian Analyses", c("Hosted office hours to clarify course material for graduate students from several departments", "Advised on capstone project for half of students"),
+  "University of Massachusetts, Amherst", "Summer 2016 - Summer 2020", "Research Assistant", c("Organized tutorials and a weekly 'coding club' that focused on best practices in software development for graduate students", "Conducted research for and published two first-author papers under NSF and NIH funded projects"),
+    "University of Massachusetts, Amherst", "Spring 2016", "Teaching Assistant - Research Methods in Psychology", c("Lectured psychology undergraduate students twice weekly, guiding students through several research projects", "Reviewed theories and methods of statistics, including lab-based practice", "Maintained office hours to review course content and mentor one-on-one")) %>%
+  detailed_entries(what = what, when = date, with = with, why = details)
+```
+
+# Personal Projects
+
+```{r, projects}
+tibble::tribble(
+  ~ with, ~ details, ~ what,
+    "\\$50000 grant from Oracle - Probing Bias in Automated Diagnoses from Medical Imaging", c("Ongoing collaboration to study biases in predictions of health outcomes with the largest existing neuroimaging dataset", "Testing generalizability of established machine and deep learning models", "Running Python scripts on Oracle Cloud Infrastructure"), NA_character_) |>
+  detailed_entries(with = what, why = details, what = with, .protect = FALSE)
+```
+
+
