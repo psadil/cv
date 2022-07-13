@@ -33,11 +33,6 @@ jobs:
             quiet=TRUE,
             output_dir = here::here(),
             output_file = "tmp")
-          rmarkdown::render(
-            here::here("resume", "resume.Rmd"),
-            quiet=TRUE,
-            output_dir = here::here(),
-            output_file = "tmp_r")
 
       - name: commit cv
         run: |
@@ -46,8 +41,6 @@ jobs:
           git fetch origin gh-pages
           git checkout gh-pages
           mv tmp.pdf cv.pdf
-          mv tmp_r.pdf resume.pdf
-          git add cv.pdf resume.pdf
-          git commit -m "generated cv/resume"
+          git commit -m "generated cv"
           git push origin gh-pages
 

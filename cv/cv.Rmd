@@ -87,7 +87,7 @@ bibliography_entries(here::here("data", "presentations.bib"))
 tibble::tribble(
   ~ what, ~ details,
   "Ad hoc book review", c("Springer"), 
-  "Ad hoc review for journals", c("Journal of Mathematical Psychology")) %>%
+  "Ad hoc review for journals", c("Frontiers Aging Neuroscience", "Journal of Mathematical Psychology")) %>%
   detailed_entries(why = details, what = what)
 
 ```
