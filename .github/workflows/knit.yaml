@@ -46,6 +46,7 @@ jobs:
           git fetch origin gh-pages
           git checkout gh-pages
           mv tmp.pdf cv.pdf
+          git add cv.pdf resume_psadil.pdf
           git commit -m "generated pdfs"
           git push origin gh-pages
 
