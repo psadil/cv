@@ -1,0 +1,71 @@
+---
+name: Patrick
+surname: Sadil
+position: "Postdoctoral Research Fellow"
+address: "Johns Hopkins Bloomberg School of Public Health; Biostatistics"
+www: psadil.github.io/psadil
+email: "psadil1@jh.edu"
+github: psadil
+linkedin: psadil
+date: "`r format(Sys.time(), '%B %Y')`"
+output: vitae::awesomecv
+csl: ../csl/apa-cv.csl 
+headcolor: 414141 # use black color
+docname: Résumé
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+library(vitae)
+library(readr)
+```
+
+# Experience
+
+```{r, experience}
+tibble::tribble(
+  ~ what, ~ date, ~ with, ~ details,
+  "Johns Hopkins Bloomberg School of Public Health", "July 2021 - Present", "Research Fellow - Biostatistics", c("Built preprocessing and quality control pipeline for multi-terabyte medical imaging datasets (Python, Bash, Docker, git)", "Extracted from images indicators of health outcomes", "Collaborated with engineering teams to deploy pipelines on high-performance compute clusters", "Reported periodically on data to teammates, technical experts, and funders through dashboards and slides (Jupyter, R Markdown)"),
+  "University of Massachusetts, Amherst", "Sep 2020 - June 2021", "Research Associate", c("Formulated custom statistical models for high-dimensional imaging data (Hierarchical Bayesian Regression, Stan)", "Implemented models in distributable software package (R)", "Standardized data sharing practices among coworkers"),
+  "University of Massachusetts, Amherst", "Summer 2016 - Summer 2020", "Researcher", c("Designed experiments based on results of simulation studies", "Collected, analyzed, interpreted, visualized, and reported on experiments", "Organized tutorials for graduate students on best practices in research software development", "Collected data through online platforms (MTurk, Flask)"),
+  "University of Massachusetts, Amherst", "Spring 2019", "Teaching Assistant - Graduate Level Bayesian Analyses", c("Hosted office hours to clarify advanced topics in statistical inference and computing", "Mentored students through capstone projects", "Contributed to design of course assignments and graded student submissions"),
+    "University of Massachusetts, Amherst", "Spring 2016", "Teaching Assistant - Research Methods in Psychology", c("Lectured students on fundamentals of probability, statistics, and research methods", "Maintained office hours to review course content and mentor one-on-one")) %>%
+  detailed_entries(what = what, when = date, with = with, why = details)
+```
+
+# Active Independent Projects
+
+```{r, projects}
+tibble::tribble(
+  ~ what, ~ details, ~ when, ~with,
+    "\\$50000 Research grant", c("Ongoing research on biases in automated predictions of health outcomes from medical imaging data", "Testing generalizability of established machine and deep learning models", "Running analyses on cloud services (Oracle Cloud Infrastructure)"), "Fall 2021 - Fall 2022", "Probing Biases in Automated Diagnoses from Medical Imaging") |>
+  detailed_entries(when = when, why = details, what = what, with = with, .protect = FALSE)
+```
+
+
+# Education
+
+```{r education}
+education <- read_csv(
+  here::here("data", "education-generic.csv"),
+  col_types = cols(
+    degree = col_character(),
+    start_date = col_double(),
+    end_date = col_double(),
+    institution = col_character(),
+    where = col_character())) %>%
+  dplyr::rowwise() %>%
+  dplyr::mutate(
+    dplyr::across(tidyselect::starts_with("why"), ~ifelse(is.na(.x), list(), list(.x))),
+    why = list(dplyr::c_across(tidyselect::starts_with("why"))))
+
+education %>%
+  detailed_entries(
+    what = institution,
+    when = glue::glue("{start_date}--{end_date}"),
+    with = degree,
+    why = why)
+
+```
+
+

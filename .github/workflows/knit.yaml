@@ -37,7 +37,7 @@ jobs:
             here::here("resume", "resume_psadil.Rmd"),
             quiet=TRUE,
             output_dir = here::here(),
-            output_file = "tmp2")
+            output_file = "resume_psadil")
 
       - name: commit cv
         run: |
@@ -46,6 +46,7 @@ jobs:
           git fetch origin gh-pages
           git checkout gh-pages
           mv tmp.pdf cv.pdf
+          git add cv.pdf resume_psadil.pdf
           git commit -m "generated pdfs"
           git push origin gh-pages
 
