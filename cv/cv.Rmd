@@ -40,11 +40,11 @@ read_csv(
 
 # Publications
 
-## Preprints
+<!-- ## Preprints -->
 
-```{r preprints}
-bibliography_entries(here::here("data", "preprints.bib"))
-```
+<!-- ```{r preprints} -->
+<!-- bibliography_entries(here::here("data", "preprints.bib")) -->
+<!-- ``` -->
 
 ## Peer-Reviewed
 
