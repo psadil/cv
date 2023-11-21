@@ -1,4 +1,6 @@
 degree,start_date,end_date,institution,where,why0,why1,why2
+"Post-Doc, Biostatistics",2021,2022,"Johns Hopkins Bloomberg School of Public Health","Baltimore, MD",Designed hierarchical Bayesian algorithm for analyzing high-dimensional medical imaging data (MRI),Implemented algorithm on High Performance Computing cluster,Tested algorithm in newly collected neuroimaging dataset
+"Post-Doc, Cognitive Psychology",2020,2021,"University of Massachusetts, Amherst","Amherst, MA",Designed hierarchical Bayesian algorithm for analyzing high-dimensional medical imaging data (MRI),Implemented algorithm on High Performance Computing cluster,Tested algorithm in newly collected neuroimaging dataset
 "PhD, Cognitive Psychology",2019,2020,"University of Massachusetts, Amherst","Amherst, MA",Designed hierarchical Bayesian algorithm for analyzing high-dimensional medical imaging data (MRI),Implemented algorithm on High Performance Computing cluster,Tested algorithm in newly collected neuroimaging dataset
 "MS, Cognitive Psychology",2015,2019,"University of Massachusetts, Amherst","Amherst, MA",Formulated and implemented novel hierarchical Bayesian analysis of behavior,"Published analysis algorithm as journal article (Sadil, Cowell, and Huber 2019)","Used algorithm to parse experiment (Sadil, Potter, Huber, and Cowell 2019)"
 "BA, Biology",2010,2014,Reed College,"Portland, OR",,,

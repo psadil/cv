@@ -1,7 +1,7 @@
 ---
 name: Patrick
 surname: Sadil
-position: "Postdoctoral Research Fellow"
+position: "Research Associate"
 address: "Johns Hopkins Bloomberg School of Public Health; Biostatistics"
 www: psadil.github.io/psadil
 email: "psadil1@jh.edu"
